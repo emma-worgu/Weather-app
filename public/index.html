@@ -25,11 +25,11 @@
             </div>
           </nav>
           <nav class="navbar navbar-light bg-dark">
-              <form name="myForm" class="form-inline">
+              <!--<form name="myForm" class="form-inline" action="http://api.openweathermap.org/data/2.5/weather?q=Nigeria&appid=56f6937a1d052f6ce1e005bc291d24b3">-->
                   <p>Search for weather in your Locality</p>
                   <input name="search" id="search" class="form-control mr-sm-2" type="text" placeholder="Ex.Lagos" aria-label="search">
                   <button onclick="searchWeather()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
+              <!--</form>-->
           </nav>
     </header>
     <main>
@@ -38,9 +38,8 @@
                 Weather Today
             </div>
             <div class = "card-body">
-                <h5 class = "card-title" id = 'test'>
-                    The weather degree is hot
-                </h5>
+                <h5 class = "card-title" id = 'test'></h5>
+                <p id="des"></p>
             </div>
         </div>
     </main>
@@ -51,7 +50,7 @@
             </div>
         </div>
     </footer>
-    <script src="../main.js"></script>
+    <!--<script src="../main.js"></script>-->
     <script src="./index.js"></script>
     <!--Bootstrap Javascript-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
