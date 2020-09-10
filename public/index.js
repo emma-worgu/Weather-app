@@ -18,7 +18,7 @@ var key = '56f6937a1d052f6ce1e005bc291d24b3';
 
 async function searchWeather() {  
   const searchInput = document.getElementById("search").value
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${key}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${key}`)
    .then((res) => {return res.json()})
     .then((data) => {
       document.getElementById('test').innerHTML = data.weather[0].main;
