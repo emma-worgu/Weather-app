@@ -39,7 +39,4 @@ async function searchWeather() {
   // } catch (error) {
   //   //alert(error);
   // }
-  console.log(searchInput);
-  console.log("Am working!!!");
-  
 };
