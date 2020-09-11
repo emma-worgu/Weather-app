@@ -15,7 +15,7 @@ h3{
   display: flex;
   justify-content: space-around;
 }
-form p {
+p {
   padding-top: 0.5rem;
   margin-right: 1rem;
   color: rgb(255, 136, 0);
