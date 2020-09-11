@@ -23,9 +23,12 @@ async function searchWeather() {
     .then((data) => {
       document.getElementById('test').innerHTML = data.weather[0].main;
       document.getElementById('des').innerHTML = data.main.temp;
-      console.log(data);
+      //console.log(data);
     })
-  .catch((err) => {console.log(err)})
+  .catch((err) => {
+    document.getElementById('test').innerHTML = 'Something went wrong, Try a well known city or place. If problem persist Contact me'
+    document.getElementById('des').innerHTML = 0.00;
+  });
 
 
   // try {
