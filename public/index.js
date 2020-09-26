@@ -14,10 +14,29 @@ var key = '56f6937a1d052f6ce1e005bc291d24b3';
 //    console.log(data);
 //   })
 // .catch((err) => {console.log(err)})
-(function getLocation() {
+const searchInput = document.getElementById("search").value;
+const setStorage = localStorage.setItem('local', searchInput);
+const getStorage = localStorage.getItem('local');
+console.log(getStorage);
+
+(function onLoad() {
+  if (getStorage) {
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${getStorage}&appid=${key}`)
+      .then((res) => {return res.json()})
+        .then((data) => {
+          document.getElementById('test').innerHTML = data.weather[0].main;
+          document.getElementById('des').innerHTML = `<p>Temperature: ${data.weather[0].description}</p>`;
+          console.log(data);
+        });
+  } else {
+    return getLocation();
+  }
+}());
+
+function getLocation() {
   if (navigator.geolocation) {
     console.log('Geolocation Supported');
-    var location = navigator.geolocation.watchPosition((position, err) => {
+    const location = navigator.geolocation.watchPosition((position, err) => {
       if (err) {
         console.log(err);
       } else {
@@ -40,15 +59,22 @@ var key = '56f6937a1d052f6ce1e005bc291d24b3';
   } else {
     console.log('Please Use a Browser that supports Geolocation');
   }
-}());
+};
 
 
 async function searchWeather() {  
-  const searchInput = document.getElementById("search").value
-  const storage = localStorage.setItem('local', searchInput);
-  const output = 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${key}`)
-   .then((res) => {return res.json()})
+  const searchInput = document.getElementById("search").value;
+  localStorage.setItem('local', searchInput);
+  const getStorage = localStorage.getItem('local');
+  console.log(getStorage);
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${getStorage}&appid=${key}`)
+   .then((res) => {
+     if (!res) {
+       console.log('Loading....')
+     } else {
+       return res.json();
+     };
+   })
     .then((data) => {
       document.getElementById('test').innerHTML = data.weather[0].main;
       document.getElementById('des').innerHTML = data.main.temp;
